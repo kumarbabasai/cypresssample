@@ -1,0 +1,65 @@
+import Login from "../Pageobjectmodel/Login.js"
+
+describe("Prms",()=>{
+
+    let lr = new Login()
+
+    beforeEach(function(){
+
+        cy.visit("http://hrm.sti.com/symfony/web/index.php/auth/login")
+
+        cy.fixture("example").then((data)=>{
+
+            cy.get('input[id="txtUsername"]').type(data.username);
+            cy.get("input[id='txtPassword']").type(data.password);
+            cy.get('input[id="btnLogin"]').click();
+            
+        })
+
+    })
+    
+   it("TC_01",()=>{
+
+        cy.fixture("example").then((data)=>{
+
+        cy.get(':nth-child(1) > .quickLaunge > a > img').click()
+        cy.get('#applyleave_txtLeaveType').select(data.Leavetype)
+
+        })
+
+
+
+    
+    
+})
+
+it("TC_02",()=>{
+
+    cy.fixture("example").then((data)=>{
+
+    cy.get(':nth-child(1) > .quickLaunge > a > img').click()
+    cy.get('#applyleave_txtLeaveType').select(data.Leavetype)
+    
+    })
+
+
+
+
+
+})
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+})
